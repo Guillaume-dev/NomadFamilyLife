@@ -92,7 +92,9 @@
                     </div>
                 </div>
             </div>
-            @yield('content')
+            <div class="container text-center">
+                @yield('content')
+            </div>
         </main>
     </div>
 
