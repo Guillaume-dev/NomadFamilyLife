@@ -19,6 +19,15 @@ Route::get('/', 'HomeController@index')->name('home');
 //Ici on y met tout les routes en lien avec la partie Blog
 Route::get('/blog', 'Blog\BlogController@index');
 
+Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function () {
+    //Route::resource('blog', 'Blog\BlogController');
+    Route::get('/new', 'BlogController@create');
+    Route::get('/{blog}', 'BlogController@show');
+    Route::post('/', 'BlogController@store');
+});
+
+
+//PARTIE DASHBOARD
 Route::group([], function () {
-    Route::resource('blog', 'Blog\BlogController');
+    Route::resource('admin', 'Admin\AdminController');
 });

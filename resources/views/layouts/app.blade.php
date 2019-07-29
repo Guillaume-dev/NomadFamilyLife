@@ -60,6 +60,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.index') }}">Administration</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('blog/new') }}">Créér un nouvel Article</a>
+                            </li>
                         @endadmin
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Connecté en tant que :
@@ -92,9 +95,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container text-center">
                 @yield('content')
-            </div>
         </main>
     </div>
 
