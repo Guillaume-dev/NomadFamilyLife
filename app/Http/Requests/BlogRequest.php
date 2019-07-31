@@ -25,7 +25,7 @@ class BlogRequest extends FormRequest
     {
         return [
             'title' => 'required|min:5',
-            'content' => 'required|between:10,300',
+            'content' => 'required|min:10',
             'url' => 'required|url',
         ];
     }
@@ -36,7 +36,7 @@ class BlogRequest extends FormRequest
             "title.required" => "Vous devez mettre un titre à votre article",
             "title.min" => "Votre article doit faire au moins 5 caractères",
             "content.required" => "Vous ne pouvez pas créér un article sans contenu",
-            "content.between" => "Le contenu de votre article doit faire entre 10 et 300",
+            "content.min" => "Le contenu de votre article doit faire plus 10 caractères",
             "url.required" => "Vous devez mettre une url d'image pour votre article",
             "url.url" => "Votre url n'est pas valide !",
         ];

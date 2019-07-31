@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Article;
 use App\Http\Requests\BlogRequest;
+use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
@@ -39,24 +40,15 @@ class BlogController extends Controller
      */
     public function store(BlogRequest $request)
     {
-    //METHODE 1
-        // $article = new Articles();
-        // $article->title = request('title');
-        // $article->content = request('content');
-        // $article->url = request('url');
-        // $article->save();
-        // return "Votre article a bien été enregistré !";
-    //METHODE 2
-        // Article::create([
-        //     'title' => request('title'),
-        //     'content' => request('content'),
-        //     'url' => request('url'),
-        // ]);
-        // return "Votre article a bien été enregistré !";
-    //METHODE 3
-
-       $article =  Article::create($validedData);
-        return redirect($article->path());
+    $article = Article::create([
+        'user_id' => Auth()->id(),
+        'title' => $request->title,
+        'content' => $request->content,
+        'url' => $request->url,
+    ]);
+    return redirect($article->path());
+    //    $article =  Article::create($request->all());
+    //     return redirect($article->path());
     }
 
     /**
