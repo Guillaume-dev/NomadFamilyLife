@@ -15,10 +15,32 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/about', 'Blog\AboutController@index')->name('about');
+Route::get('/contact', 'Blog\ContactController@index')->name('contact');
+
 
 //Ici on y met tout les routes en lien avec la partie Blog
+//NOus permet de récuperer et d'afficher la liste de tout nos article
 Route::get('/blog', 'Blog\BlogController@index');
 
+Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function () {
+//Route::resource('blog', 'Blog\BlogController');
+    Route::get('/', 'BlogController@index')->name('blog');
+//Pour créer un article
+    Route::get('/new', 'BlogController@create');
+// Pour enregistrer l'article créé
+    Route::post('/', 'BlogController@store');
+//Pour afficher un article
+    Route::get('/{blog}', 'BlogController@show');
+// Pour Editer un article
+    Route::get('/{blog}/edit', 'BlogController@edit');
+// Pour Mettre à jours l'article éditer
+    Route::put('/{blog}/update', 'BlogController@update');
+
+});
+
+
+//PARTIE DASHBOARD
 Route::group([], function () {
-    Route::resource('blog', 'Blog\BlogController');
+    Route::resource('admin', 'Admin\AdminController');
 });

@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Blog;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Articles;
+use App\Article;
+use App\Http\Requests\BlogRequest;
+use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
@@ -15,7 +17,8 @@ class BlogController extends Controller
      */
     public function index ()
     {
-        $articles = Articles::get();
+        $articles = Article::orderBy('created_at', 'desc')->paginate(6);
+
         return view ('blog.blog_index', compact('articles'));
     }
 
@@ -26,7 +29,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view ('blog.blog_create_article');
     }
 
     /**
@@ -35,9 +38,17 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BlogRequest $request)
     {
-        //
+    $article = Article::create([
+        'user_id' => Auth()->id(),
+        'title' => $request->title,
+        'content' => $request->content,
+        'url' => $request->url,
+    ]);
+    return redirect($article->path());
+    //    $article =  Article::create($request->all());
+    //     return redirect($article->path());
     }
 
     /**
@@ -48,7 +59,7 @@ class BlogController extends Controller
      */
     public function show ($id)
     {
-        $article = Articles::find($id);
+        $article = Article::find($id);
         //return dd($article);
         return view ('blog.blog_show_article', compact('article'));
     }
@@ -61,7 +72,8 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = Article::where('id', $id)->first();
+        return view ('blog.blog_edit_article', compact('article'));
     }
 
     /**
@@ -71,9 +83,16 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // public function update(Request $request, $id)
     public function update(Request $request, $id)
     {
-        //
+        $article = Article::where('id', $id)->first();
+        $article->title = $request->title;
+        $article->content = $request->content;
+        $article->url = $request->url;
+        $article->save();
+
+        return redirect($article->path());
     }
 
     /**

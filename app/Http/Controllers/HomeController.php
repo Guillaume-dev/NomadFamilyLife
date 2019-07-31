@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Article;
 
 class HomeController extends Controller
 {
@@ -14,6 +15,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $articles = Article::orderBy('created_at', 'desc')->paginate(4);
+
+        return view ('home', compact('articles'));
     }
 }
