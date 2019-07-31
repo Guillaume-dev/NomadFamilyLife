@@ -72,7 +72,8 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article = Article::where('id', $id)->first();
+        return view ('blog.blog_edit_article', compact('article'));
     }
 
     /**
@@ -82,9 +83,16 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // public function update(Request $request, $id)
     public function update(Request $request, $id)
     {
-        //
+        $article = Article::where('id', $id)->first();
+        $article->title = $request->title;
+        $article->content = $request->content;
+        $article->url = $request->url;
+        $article->save();
+
+        return redirect($article->path());
     }
 
     /**

@@ -23,9 +23,20 @@
                 </div>
                 <div class="card-body">
                     <p><img src="{{ $article->url }} " alt="" style="float:left; margin:5px;"> {{ $article->content }}</p>
-
                 </div>
             </div>
+        {{-- ICI BOUTON D EDITION EN MODE ADMIN --}}
+        @guest
+            @else
+            {{-- Obliger de mettre le guest et le else sinon pas moyen d'avoir l'affichage du boutton en mode admin --}}
+            @if (Auth::user()->admin)
+                <div class="d-flex justify-content-end">
+                    <a href="{{ url($article->path()) . '/edit' }}">
+                        <button class="btn btn-outline-success">Editer</button>
+                    </a>
+                </div>
+            @endif
+        @endguest
         </div>
     </div>
 </article>

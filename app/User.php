@@ -49,4 +49,5 @@ class User extends Authenticatable
         $article = auth()->user()->articles()->create($request->all());
         return redirect($article->path());
     }
+
 }
