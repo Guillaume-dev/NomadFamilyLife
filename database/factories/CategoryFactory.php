@@ -18,17 +18,6 @@ use App\Category;
 */
 $factory->define(Category::class, function (Faker $faker) {
     return [
-        'name'=>$faker->name,
-    ];
-});
-
-$factory->define(Article::class, function (Faker $faker) {
-    return [
-        'user_id'=>1,
-        'category_id'=> rand(1,3),
-        'title' => $faker->word,
-        'content' => $faker->text(mt_rand(900, 1500)),
-        'url' => $faker->imageUrl(400, 240),
-        'created_at' => $faker->dateTimeBetween($startDate = '-6 month', $endDate = 'now')
+        'name'=>$faker->word,
     ];
 });

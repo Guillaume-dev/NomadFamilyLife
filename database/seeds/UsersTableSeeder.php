@@ -23,6 +23,12 @@ class UsersTableSeeder extends Seeder
         //         'password' =>bcrypt('secret')
         //     ]);
         // }
+        \App\User::create([
+            'name' =>'Admin',
+            'email' => 'admin@admin.fr',
+            'password' =>bcrypt('adminadmin')
+        ]);
+
 
         //permet de créer des utilisateurs sans les relations
         factory(\App\User::class, 20)->create();

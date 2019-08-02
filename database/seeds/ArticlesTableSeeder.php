@@ -24,6 +24,7 @@ class ArticlesTableSeeder extends Seeder
         //     ]);
         // }
         //permet de créer des articles (avec les parametres de la factory)
-        factory(\App\Article::class, 20)->create();
+
+        factory(\App\Article::class, 45)->create();
     }
 }

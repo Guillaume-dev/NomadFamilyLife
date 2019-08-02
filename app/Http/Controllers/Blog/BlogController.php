@@ -7,9 +7,15 @@ use App\Http\Controllers\Controller;
 use App\Article;
 use App\Http\Requests\BlogRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Category;
 
 class BlogController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth'])->except(['index', 'show']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,9 +23,13 @@ class BlogController extends Controller
      */
     public function index ()
     {
-        $articles = Article::orderBy('created_at', 'desc')->paginate(6);
-
-        return view ('blog.blog_index', compact('articles'));
+        $articles =Article::latest()->paginate(6);
+        $categories = Category::get();
+        if (\request( 'category')) {
+            $articles = Article::where('category_id', request('category'))->paginate(6);
+            return view ('blog.blog_index', compact('articles', 'categories'));
+        }
+        return view ('blog.blog_index', compact('articles', 'categories'));
     }
 
     /**
@@ -101,8 +111,10 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $article = Article::where('id', $id)->first();
+        $article->delete();
+        return redirect('blog');
     }
 }

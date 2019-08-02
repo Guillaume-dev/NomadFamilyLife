@@ -59,13 +59,22 @@
                                     </li>
                                 @endif
                             @else
-                            @if(Auth::user()->admin)
-                                <li class="nav-item">
+                            @if (Auth::user()->admin)
+                            <div class="dropdown">
+                                <button class="btn btn-outline-warning" data-toggle="dropdown">Administration</button>
+                                <div class="dropdown-menu">
+                                <div class="dropdown-item">
                                     <a class="nav-link" href="{{ route('admin.index') }}">Administration</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ url('blog/new') }}">Créér un nouvel Article</a>
-                                </li>
+                                </div>
+                                <div class="dropdown-item">
+                                    <a class="nav-link" href="{{ url('blog/create') }}">Créér un nouvel Article</a>
+                                </div>
+                                <div class="dropdown-item">
+                                    <a class="nav-link" href="{{ url('category/create') }}">Créér une nouvelle catégorie</a>
+                                </div>
+                            </div>
+                            </div>
+
                             @endif
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Connecté en tant que :
