@@ -50,4 +50,9 @@ class User extends Authenticatable
         return redirect($article->path());
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 }

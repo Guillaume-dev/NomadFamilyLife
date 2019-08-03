@@ -2,7 +2,7 @@
 
 namespace App;
 use App\Category;
-
+use App\Comment;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User;
@@ -25,7 +25,11 @@ class Article extends Model
     public function category()
     {
       return $this->belongsTo(Category::class);
+    }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
 }

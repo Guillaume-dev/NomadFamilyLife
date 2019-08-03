@@ -20,4 +20,12 @@ class CategoriesController extends Controller
         return redirect("blog");
     }
 
+    public function destroy(Category $category)
+    {
+        //$category->articles()->delete();
+        $category->delete();
+
+        return back();
+    }
+
 }

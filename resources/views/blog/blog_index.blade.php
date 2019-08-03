@@ -15,6 +15,40 @@
 
             <div class="container d-flex">
                     <div class="col-12">
+                         {{-- ICI BOUTON D EDITION EN MODE ADMIN --}}
+                         @guest
+                         @else
+                             {{-- Obliger de mettre le guest et le else sinon pas moyen d'avoir l'affichage du boutton en mode admin --}}
+                             @if (Auth::user()->admin)
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nom</th>
+                                        <th scope="col">Slug</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($categories as $category )
+                                    <tr>
+                                        <th scope="row">{{ $category->id }}</th>
+                                        <td>{{ $category->name }}</td>
+                                        <td>{{ $category->slug }}</td>
+                                        <td>
+                                            <form action="{{ url("/category/$category->id/delete") }}" method="POST">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
+                                                <button class="btn btn-danger">Supprimer</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+
+                                </tbody>
+                            </table>
+                            @endif
+                            @endguest
                             @forelse ($articles as $article)
                             <article class="apercu_article_blog">
                                 <div class="row justify-content-center">

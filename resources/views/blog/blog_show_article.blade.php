@@ -39,11 +39,31 @@
                         @endif
                     @endguest
                 </div>
+
                 <div class="card-body">
                     <p><img src="{{ $article->url }} " alt="" style="float:left; margin:5px;"> {{ $article->content }}</p>
                 </div>
             </div>
+                <hr>
+                <form class="mt-5" action="{{ url("{$article->path()}/comments") }}" method="POST">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <textarea name="content" placeholder="Votre commentaire..." cols="100" rows="10">{{ old('content') }}</textarea>
+                    </div>
+                    <button class="btn btn-dark">Commenter</button>
+                </form>
 
+                <div class="card">
+                    @foreach ($article->comments()->latest()->get() as $comment )
+                        <div>
+                            <strong>{{ $comment->user->name }}</strong> -
+                            {{ $comment->created_at->diffForHumans() }}
+                        </div>
+                        <div class="card-body">
+                            {{ $comment->content }}
+                        </div>
+                    @endforeach
+                </div>
         </div>
     </div>
 </article>

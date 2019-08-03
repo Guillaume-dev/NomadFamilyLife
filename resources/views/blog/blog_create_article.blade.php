@@ -12,6 +12,16 @@
             {!! $errors->first('title', '<p class="invalid-feedback text-left">:message</p>') !!}
         </div>
         <div class="form-group">
+            <label for="category_id-select">Choose a category:</label>
+                <select id="category_id-select" name="category_id" class="form-control {!! $errors->has('category_id') ? 'is-invalid' : '' !!}" placeholder="Le nom de votre article" >
+                    <option value={{ old('category') }}>--Please choose an category--</option>
+                    @foreach ($categories as $category )
+                        <option name="category_id" value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+                {!! $errors->first('category_id', '<p class="invalid-feedback text-left">:message</p>') !!}
+        </div>
+        <div class="form-group">
             <textarea name="content" rows="3" class="form-control {!! $errors->has('content') ? 'is-invalid' : '' !!}" placeholder="Ici le contenu de votre article">{{ old('content') }}</textarea>
             {!! $errors->first('content', '<p class="invalid-feedback text-left">:message</p>') !!}
         </div>
