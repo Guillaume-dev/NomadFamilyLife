@@ -39,7 +39,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view ('blog.blog_create_article');
+        $categories = Category::get();
+        return view ('blog.blog_create_article', compact('categories'));
     }
 
     /**
@@ -50,8 +51,10 @@ class BlogController extends Controller
      */
     public function store(BlogRequest $request)
     {
+
     $article = Article::create([
         'user_id' => Auth()->id(),
+        'category_id' => $request->category_id,
         'title' => $request->title,
         'content' => $request->content,
         'url' => $request->url,

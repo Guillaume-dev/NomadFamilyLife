@@ -38,11 +38,15 @@ Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function () {
     Route::put('/{blog}/update', 'BlogController@update');
 // Pour supprimer l'article
     Route::delete('/{blog}/delete', 'BlogController@destroy');
+
+// Comments
+    Route::post('{blog}/comments', 'CommentsController@store');
 });
 
 Route::group(['namespace' => 'Blog', 'prefix' => 'category'], function () {
     Route::get('create', 'CategoriesController@create');
     Route::post('', 'CategoriesController@store');
+    Route::delete('{category}/delete', 'CategoriesController@destroy');
     });
 //PARTIE DASHBOARD
 Route::group([], function () {
