@@ -28,7 +28,7 @@
 </head>
 <body>
     <div id="app">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-primary nav-text-size">
+            <nav class="navbar navbar-default navbar-fixed-top navbar-expand-lg navbar-dark bg-primary nav-text-size">
                     <a class="navbar-brand navTitle-text-size" href="{{ url('/') }}">{{ config('app.name') }}</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -102,12 +102,21 @@
             @yield('content')
         </main>
     </div>
-
+        {{-- Section Footer social Media --}}
+        <section id="social-media">
+            <div class="container">
+                <h1>Retrouvez-nous sur les réseaux sociaux !</h1>
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-youtube"></a>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-snapchat-ghost"></a>
+            </div>
+        </section>
     <!-- Footer -->
     <footer class="page-footer font-small blue">
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2018 Copyright:
-        <a href="https://guillaume-biausque.fr"> Nomad_Dev_Web</a>
+        <a href="https://guillaume-biausque.fr"> Entre Virtuel & Réalité : developpement web & multimedia</a>
     </div>
     <!-- Copyright -->
     </footer>

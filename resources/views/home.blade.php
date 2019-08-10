@@ -10,12 +10,16 @@
 			<source src="{{ URL::asset("video/travel-video-demo.mp4") }}" type="video/mp4">
         </video>
         <div>
-        <h2 class="ml3">Nomad Family Life</h2>
-        <p class="ml12">Ou notre vie de famille nomade</p>
+            <h2 class="ml3">Nomad Family Life</h2>
+            <p class="ml12">Ou notre vie de famille nomade</p>
+        </div>
+        <div>
+            <a href="#events" class="text-center button_home btn btn-outline-primary">Voyager</a>
         </div>
 </section>
 
 <div class="container">
+    {{-- Section derniers Articles --}}
     <section id="events">
         <h1>Les derniers articles</h1>
         <p>Ici vous trouverez toujours nos nouveaux articles et reportage</p>
@@ -32,16 +36,28 @@
                         <img class="event-thumbnail thumbnail" src="{{ $article->url }}" alt="">
 
                     </div>
-                    <div class="event-heading">{{ $article->title }}</div>
                     <p class="event-intro">{{ str_limit($article->content, $limit = 350, $end = ' ...') }}<br><a href="{{  url($article->path()) }}">Lire la suite ...</a></p>
                 </article>
             @endforeach
         </div>
     </section>
+    {{-- Section Newsletter --}}
 </div>
+<section id="newsletter" class="">
+        <div class="container container-newsletter">
+            <h1 class="h1-newsletter"><strong>Inscrivez-vous</strong> à notre newsletter</h1>
+            <form class="form-newsletter" action="">
+                <input type="email" name="email" id="email" placeholder="example@example.com" />
+                <input type="submit" name="submit" value="inscription">
+            </form>
+        </div>
+    </section>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
+
+
 // Wrap every letter in a span
 var textWrapper = document.querySelector('.ml3');
 textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
