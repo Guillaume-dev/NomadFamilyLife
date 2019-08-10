@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,600);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -10649,6 +10649,12 @@ section {
   text-align: center;
 }
 
+.navbar {
+  position: fixed !important;
+  z-index: 9999 !important;
+  width: 100% !important;
+}
+
 .header-nav {
   padding: 0;
   height: auto;
@@ -10717,6 +10723,22 @@ section {
   font-size: 25px;
 }
 
+.button_home {
+  position: absolute;
+  bottom: 6em;
+  left: 40%;
+  right: 40%;
+  color: #FFF !important;
+  font-size: 50px !important;
+  z-index: 9999;
+  font-family: "Fredericka the Great", cursive;
+}
+
+#events {
+  margin-bottom: 8%;
+  padding-top: 10%;
+}
+
 .event-wrapper {
   width: 100%;
   margin: 10px 0;
@@ -10726,6 +10748,19 @@ section {
 
 .event-intro {
   text-align: justify;
+  transition: transform 0.2s;
+}
+
+.event-intro:hover {
+  background-color: #008cba;
+  color: white;
+  transform: scale(1.15);
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.event-intro:hover > a {
+  color: black;
 }
 
 .ml3 {
@@ -10743,5 +10778,118 @@ section {
 .ml12 .letter {
   display: inline-block;
   line-height: 1em;
+}
+
+#newsletter {
+  min-height: 400px;
+  background-color: #008cba;
+}
+
+.container-newsletter {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.h1-newsletter {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 0.025em;
+}
+
+.h1-newsletter strong {
+  font-weight: 400;
+}
+
+.form-newsletter {
+  position: relative;
+  display: block;
+  height: 70px;
+  border-radius: 35px;
+  background: white;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+}
+
+.form-newsletter input {
+  line-height: 70px;
+  padding: 0;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 300;
+  background: #eee;
+  letter-spacing: 0.02em;
+}
+
+.form-newsletter input:not([type=submit]) {
+  width: 100%;
+  display: block;
+  padding: 0 150px 0 30px;
+}
+
+.form-newsletter input:not([type=email]) {
+  position: absolute;
+  height: 50px;
+  line-height: 50px;
+  top: 10px;
+  right: 10px;
+  border-radius: 25px;
+  padding: 0 25px;
+  background: #f65269;
+  color: white;
+  cursor: pointer;
+}
+
+.form-newsletter input:not([type=email]):hover {
+  background: #f00c2c;
+}
+
+.form-newsletter input:focus {
+  outline: none;
+  background: white;
+}
+
+#social-media {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.fa {
+  padding: 50px;
+  font-size: 50px;
+  margin-top: 3%;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+  margin-right: 60px;
+  margin-left: 60px;
+  margin-top: 60px;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #bf13d2;
+  color: white;
+}
+
+.fa-snapchat-ghost {
+  background: #fffc00;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
