@@ -10,11 +10,17 @@
 			<source src="{{ URL::asset("video/travel-video-demo.mp4") }}" type="video/mp4">
         </video>
         <div>
-            <h2 class="ml3">Nomad Family Life</h2>
-            <p class="ml12">Ou notre vie de famille nomade</p>
+            <div>
+                    <h2 class="ml3">Nomad Family Life</h2>
+            </div>
+            <div>
+                    <p class="ml12">Ou notre vie de famille nomade</p>''
+            </div>
         </div>
         <div>
-            <a href="#events" class="text-center button_home btn btn-outline-primary">Voyager</a>
+            <a href="#events">
+                <button class="text-center button_home btn btn-outline-primary">Voyager</button>
+            </a>
         </div>
 </section>
 
@@ -26,7 +32,7 @@
 
         <div class="row">
             @foreach ($articles as $article)
-                <article class="col-md-4 col-lg-3">
+                <article class="col-md-6 col-lg-3">
                     <div class="event-wrapper">
                         <div class="event-tag">
                                 <a href="{{  url($article->path()) }}"><h2>{{ $article->title }}</h2></a>
@@ -46,7 +52,8 @@
 <section id="newsletter" class="">
         <div class="container container-newsletter">
             <h1 class="h1-newsletter"><strong>Inscrivez-vous</strong> à notre newsletter</h1>
-            <form class="form-newsletter" action="">
+            {{ csrf_field() }}
+            <form class="form-newsletter" action="{{ url('/subscribe_newsletter') }}" method="POST">
                 <input type="email" name="email" id="email" placeholder="example@example.com" />
                 <input type="submit" name="submit" value="inscription">
             </form>

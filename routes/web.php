@@ -48,6 +48,7 @@ Route::group(['namespace' => 'Blog', 'prefix' => 'category'], function () {
     Route::post('', 'CategoriesController@store');
     Route::delete('{category}/delete', 'CategoriesController@destroy');
     });
+
 //PARTIE DASHBOARD
 Route::group([], function () {
     Route::resource('admin', 'Admin\AdminController');
