@@ -18,6 +18,8 @@ section {
     width: 100%!important;
 }
 
+
+
 .header-nav{
     padding: 0;
     height: auto;
@@ -33,6 +35,14 @@ section {
 
 .navTitle-text-size{
     font-size: 2.5rem!important;
+}
+
+@media (max-width: 375px) {
+    /* CSS mobile ici */
+    .navTitle-text-size
+    {
+        font-size: 2rem !important;
+    }
 }
 //HOME PAGE -- SECTION VIDEO
 #nomad_family {
@@ -87,22 +97,43 @@ section {
     font-size: 25px;
 }
 
+@media (max-width: 375px) {
+    /* CSS mobile ici */
+    .video-audio i {
+        display: none;
+    }
+}
+
 .button_home {
     position: absolute;
-    bottom: 6em;
+    bottom: 4em;
     left: 40%;
     right: 40%;
     color: #FFF !important;
     font-size: 50px !important;
-    z-index: 9999;
+    // z-index: 9999;
     font-family: 'Fredericka the Great', cursive;
 }
 
+@media (max-width: 375px) {
+    /* CSS mobile ici */
+    .button_home {
+        left: 25%;
+        bottom: 2em;
+    }
+}
 
 //HOME PAGE -- BLOG 4 LAST ARTICLES
 #events {
     margin-bottom: 8%;
     padding-top: 10%;
+}
+
+@media (max-width: 375px) {
+    /* CSS mobile ici */
+    #events {
+        padding-top: 25%;
+    }
 }
 
 .event-wrapper {
@@ -144,6 +175,13 @@ section {
     letter-spacing: 0.5em;
   }
 
+  @media (max-width: 375px) {
+    /* CSS mobile ici */
+    .ml12 {
+        display: none;
+    }
+}
+
   .ml12 .letter {
     display: inline-block;
     line-height: 1em;
@@ -161,8 +199,8 @@ $primaryColor: #F53A54;
 
 .container-newsletter
 {
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin-top: 7%;
+    margin-bottom: 7%;
 }
 
 .h1-newsletter {
@@ -244,6 +282,18 @@ $primaryColor: #F53A54;
     margin-top: 60px;
   }
 
+  @media (max-width: 375px) {
+    /* CSS mobile ici */
+    .fa {
+        padding: 25px;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+}
+
+
+
   .fa:hover {
       opacity: 0.7;
   }
@@ -263,9 +313,4 @@ $primaryColor: #F53A54;
     color: white;
   }
 
-  .fa-snapchat-ghost {
-    background: #fffc00;
-    color: white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-  }
 

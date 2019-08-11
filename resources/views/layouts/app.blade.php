@@ -105,11 +105,10 @@
         {{-- Section Footer social Media --}}
         <section id="social-media">
             <div class="container">
-                <h1>Retrouvez-nous sur les réseaux sociaux !</h1>
-                <a href="#" class="fa fa-facebook"></a>
-                <a href="#" class="fa fa-youtube"></a>
-                <a href="#" class="fa fa-instagram"></a>
-                <a href="#" class="fa fa-snapchat-ghost"></a>
+                <h1>Retrouvez-nous sur les réseaux sociaux</h1>
+                <a href="https://www.facebook.com/Nomad-Family-Life-449163025924714/" class="fa fa-facebook"></a>
+                <a href="https://www.youtube.com/channel/UCZD1HBWnd4N3cPf9W3htEFA/" class="fa fa-youtube"></a>
+                <a href="http://www.instagram.com/nomad_family_life" class="fa fa-instagram"></a>
             </div>
         </section>
     <!-- Footer -->
