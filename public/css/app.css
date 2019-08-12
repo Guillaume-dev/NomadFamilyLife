@@ -10742,8 +10742,7 @@ section {
 .button_home {
   position: absolute;
   bottom: 4em;
-  left: 40%;
-  right: 40%;
+  left: 43%;
   color: #FFF !important;
   font-size: 50px !important;
   font-family: "Fredericka the Great", cursive;
@@ -10759,7 +10758,6 @@ section {
 }
 
 #events {
-  margin-bottom: 8%;
   padding-top: 10%;
 }
 
@@ -10780,15 +10778,15 @@ section {
 
 .event-intro {
   text-align: justify;
-  transition: transform 0.2s;
+  transition: all 0.3s ease-out;
 }
 
 .event-intro:hover {
   background-color: #008cba;
   color: white;
-  transform: scale(1.15);
-  border-radius: 10px;
-  padding: 15px;
+  transform: translate(0px, -10px);
+  border-radius: 1px;
+  padding: 10px;
 }
 
 .event-intro:hover > a {
@@ -10936,5 +10934,22 @@ section {
 .fa-instagram {
   background: #bf13d2;
   color: white;
+}
+
+.section_about_us {
+  padding-top: 110px;
+}
+
+.section_blog {
+  padding-top: 110px;
+}
+
+.section_blog_article {
+  padding-top: 110px;
+}
+
+.commentaire_input {
+  width: 100%;
+  border-radius: 5px;
 }
 
