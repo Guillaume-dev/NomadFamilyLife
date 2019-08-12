@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section id="nomad_family">
+<section class="container col-12" id="nomad_family">
 		<a href="#" class="video-audio">
             <i class="fa volume fa-volume-up"></i>
         </a>
@@ -11,19 +11,19 @@
         </video>
         <div>
             <div>
-                    <h2 class="ml3">Nomad Family Life</h2>
+                <h2 class="ml3">Nomad Family Life</h2>
             </div>
             <div>
-                    <p class="ml12">Ou notre vie de famille nomade</p>''
+                <p class="ml12">Ou notre vie de famille nomade</p>''
             </div>
         </div>
-        <div>
-            <a href="#events">
-                <button class="text-center button_home btn btn-outline-primary">Voyager</button>
-            </a>
-        </div>
-</section>
 
+</section>
+<div class="button_home_travel d-flex justify-content-center">
+    <a href="#events">
+        <button class="text-center button_home btn btn-outline-primary">Voyager</button>
+    </a>
+</div>
 <div class="container">
     {{-- Section derniers Articles --}}
     <section id="events">
@@ -52,9 +52,26 @@
 <section id="newsletter" class="">
         <div class="container container-newsletter">
             <h1 class="h1-newsletter"><strong>Inscrivez-vous</strong> à notre newsletter</h1>
-            {{ csrf_field() }}
-            <form class="form-newsletter" action="{{ url('/subscribe_newsletter') }}" method="POST">
-                <input type="email" name="email" id="email" placeholder="example@example.com" />
+            <form class="form-newsletter" action="{{ url('blog/newsletter') }}" method="POST">
+
+
+
+                @csrf
+
+                        <div class="form-group row">
+
+
+                            <div class="col-md-12">
+                                <input type="email" name="email" id="email" placeholder="example@example.com" />
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                 <input type="submit" name="submit" value="inscription">
             </form>
         </div>
@@ -63,7 +80,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-
+ var msg = '{{Session::get('alert')}}';
+    var exist = '{{Session::has('alert')}}';
+    if(exist){
+      alert(msg);
+    }
 
 // Wrap every letter in a span
 var textWrapper = document.querySelector('.ml3');

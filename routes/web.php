@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\NewsletterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/about', 'Blog\AboutController@index')->name('about');
 Route::get('/contact', 'Blog\ContactController@index')->name('contact');
 
+//Inscription à la newsletter
+Route::post('/blog/newsletter', 'NewsletterController@store');
 
 //Ici on y met tout les routes en lien avec la partie Blog
 //NOus permet de récuperer et d'afficher la liste de tout nos article
